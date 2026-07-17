@@ -10,7 +10,9 @@ public class AirportsInUsaSolution {
 
     public static void main(String[] args) throws Exception {
 
-        SparkConf conf = new SparkConf().setAppName("airports").setMaster("local[2]");
+
+
+        SparkConf conf = new SparkConf().setAppName("airports").setMaster("local[*]");
 
         JavaSparkContext sc = new JavaSparkContext(conf);
 
@@ -23,6 +25,6 @@ public class AirportsInUsaSolution {
                     return StringUtils.join(new String[]{splits[1], splits[2]}, ",");
                 }
         );
-        airportsNameAndCityNames.saveAsTextFile("out/airports_in_usa.text");
+        airportsNameAndCityNames.saveAsTextFile("out/airports_in_usa2.text");
     }
 }
